@@ -20,7 +20,7 @@ const Navbar = () => {
           <KeyboardArrowDownIcon />
         </div>
       </div>
-      <nav className="px-[135px] h-[38px] items-center  grid grid-cols-[auto_1fr_auto] mt-[40px] pb-[16px] border-b-[0.5px] border-black/30 ">
+      <nav className="px-[135px]  grid grid-cols-[auto_1fr_auto]  place-items-center mt-[40px] mb-4">
         <h2 className="font-bold text-[24px]">Exclusive</h2>
         <ul className="flex space-x-12 text-4 justify-center">
           <li>Home</li>
@@ -41,6 +41,7 @@ const Navbar = () => {
           <img src={CartIcon} alt="=Cart Icon" />
         </div>
       </nav>
+      <hr className="h-[0.5px] bg-black/30" />
     </>
   );
 };
