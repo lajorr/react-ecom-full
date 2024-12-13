@@ -1,9 +1,9 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import React from "react";
-import CartIcon from "../assets/svg/cart_icon.svg";
-import HeartIcon from "../assets/svg/heart_icon.svg";
-import SearchIcon from "../assets/svg/search_icon.svg";
+import CartIcon from "../assets/icons/cart_icon.svg";
+import HeartIcon from "../assets/icons/heart_icon.svg";
+import SearchIcon from "../assets/icons/search_icon.svg";
 
 const Navbar = () => {
   return (
@@ -20,10 +20,10 @@ const Navbar = () => {
           <KeyboardArrowDownIcon />
         </div>
       </div>
-      <nav className="px-[135px] h-[38px] items-center  grid grid-cols-[auto_1fr_auto] mt-[40px] mb-4 border-b-[0.5px] border-black/30 ">
+      <nav className="px-[135px] h-[38px] items-center  grid grid-cols-[auto_1fr_auto] mt-[40px] pb-[16px] border-b-[0.5px] border-black/30 ">
         <h2 className="font-bold text-[24px]">Exclusive</h2>
         <ul className="flex space-x-12 text-4 justify-center">
-          <li>Home</li> 
+          <li>Home</li>
           <li>Contact</li>
           <li>About</li>
           <li>Sign Up</li>
