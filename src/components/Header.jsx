@@ -4,7 +4,7 @@ import React from "react";
 import AppleLogo from "../assets/images/apple_logo.svg";
 import IphoneLarge from "../assets/images/iphone_large.png";
 
-import { catalogList } from "../utils/Constants";
+import { catalogList } from "../utils/Constants.js";
 
 const Header = () => {
   return (
@@ -27,8 +27,8 @@ const Header = () => {
               <img className="w-[40px]" src={AppleLogo} alt="Apple Logo" />
               <h2 className="text-[16p">iPhone 14 Series</h2>
             </div>
-            <h1 className="text-[48px] w-[294px]">Up to 10% off Voucher</h1>
-            <div className="flex gap-2 ">
+            <h1 className="text-[48px] w-[294px] font-[600] ">Up to 10% off Voucher</h1>
+            <div className="flex gap-2 cursor-pointer ">
               <p className="font-[500] text-[16px] underline underline-offset-4 ">
                 Shop Now
               </p>
