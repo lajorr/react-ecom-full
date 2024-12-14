@@ -1,12 +1,25 @@
 import Chair from "../assets/images/chair.png";
+import GucciBag from "../assets/images/gucci_bag.png";
 import Joystick from "../assets/images/joystick.png";
 import Keyboard from "../assets/images/keyboard.png";
-import Monitor from "../assets/images/monitor.png";
-
-import GucciBag from "../assets/images/gucci_bag.png";
 import LiquidCpuCooler from "../assets/images/liquid_cpu_cooler.png";
+import Monitor from "../assets/images/monitor.png";
 import NorthCoat from "../assets/images/north_coat.png";
 import SmallBookself from "../assets/images/small_bookself.png";
+
+import Camera from "../assets/icons/category_camera.svg";
+import CellPhone from "../assets/icons/category_cellPhone.svg";
+import Computer from "../assets/icons/category_computer.svg";
+import Gamepad from "../assets/icons/category_gamepad.svg";
+import HeadPhone from "../assets/icons/category_headphone.svg";
+import SmartWatch from "../assets/icons/category_smartWatch.svg";
+
+import CameraSelected from "../assets/icons/category_camera_selected.svg";
+import CellPhoneSelected from "../assets/icons/category_cellPhone_selected.svg";
+import ComputerSelected from "../assets/icons/category_computer_selected.svg";
+import GamepadSelected from "../assets/icons/category_gamepad_selected.svg";
+import HeadPhoneSelected from "../assets/icons/category_headphone_selected.svg";
+import SmartWatchSelected from "../assets/icons/category_smartWatch_selected.svg";
 
 export const catalogList = [
   {
@@ -155,4 +168,43 @@ export const bestSellingProductsList = [
   //   rating: 4,
   //   img: Chair,
   // },
+];
+
+export const categoriesList = [
+  {
+    id: 1,
+    name: "Phones",
+    icon: CellPhone,
+    selectedIcon: CellPhoneSelected,
+  },
+  {
+    id: 2,
+    name: "Computers",
+    icon: Computer,
+    selectedIcon: ComputerSelected,
+  },
+  {
+    id: 3,
+    name: "SmartWatch",
+    icon: SmartWatch,
+    selectedIcon: SmartWatchSelected,
+  },
+  {
+    id: 4,
+    name: "Camera",
+    icon: Camera,
+    selectedIcon: CameraSelected,
+  },
+  {
+    id: 5,
+    name: "HeadPhones",
+    icon: HeadPhone,
+    selectedIcon: HeadPhoneSelected,
+  },
+  {
+    id: 6,
+    name: "Gaming",
+    icon: Gamepad,
+    selectedIcon: GamepadSelected,
+  },
 ];

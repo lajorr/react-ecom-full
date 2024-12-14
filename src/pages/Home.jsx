@@ -1,11 +1,22 @@
 import React from "react";
+import CategoryCard from "../components/CategoryCard.jsx";
 import ContentCarousel from "../components/ContentCarousel";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
-import { bestSellingProductsList, flashSalesList } from "../utils/Constants.js";
+import {
+  bestSellingProductsList,
+  categoriesList,
+  flashSalesList,
+} from "../utils/Constants.js";
 
 const Home = () => {
+  const countDown ={
+    days: 3,
+    hours: 23,
+    minutes: 19,
+    seconds: 56
+  }
   return (
     <div>
       <Header />
@@ -15,9 +26,10 @@ const Home = () => {
           title={"Flash Sale"}
           isSlidable={true}
           hasViewAll={true}
+          countDown={countDown}
           onViewAll={() => {}}
         >
-          <div className="flex gap-[30px] overflow-auto">
+          <div className="flex gap-[30px]">
             {flashSalesList.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -30,9 +42,9 @@ const Home = () => {
           title={"Browse By Category"}
           isSlidable={true}
         >
-          <div className="flex gap-[30px] overflow-auto">
-            {flashSalesList.map((product) => (
-              <ProductCard key={product.id} product={product} />
+          <div className="flex gap-[30px]">
+            {categoriesList.map((cat) => (
+              <CategoryCard key={cat.id} category={cat} />
             ))}
           </div>
         </ContentCarousel>
@@ -44,7 +56,7 @@ const Home = () => {
           isSlidable={false}
           onViewAll={() => {}}
         >
-          <div className="flex gap-[30px] overflow-auto">
+          <div className="flex gap-[30px]">
             {bestSellingProductsList.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
