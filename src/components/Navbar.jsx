@@ -29,7 +29,7 @@ const Navbar = () => {
           <li>Sign Up</li>
         </ul>
         <div className="flex items-center gap-4 ">
-          <div className="bg-secondary-100 rounded-[4px] flex items-center mr-2   pr-[12px]">
+          <div className="bg-secondary rounded-[4px] flex items-center mr-2   pr-[12px]">
             <input
               type="text"
               placeholder="What are you looking for?"

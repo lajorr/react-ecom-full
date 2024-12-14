@@ -5,16 +5,16 @@ import FillHeart from "../assets/icons/fill_heart.svg";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="group border w-[270px]">
-      <div className="bg-secondary-100  h-[250px] rounded-[4px] relative">
+    <div className="group w-[270px]">
+      <div className="bg-secondary  h-[250px] rounded-[4px] relative">
         <div className="size-full flex items-center justify-center">
           <img src={product.img} alt="image" />
         </div>
         <div className="absolute w-[270px] h-[250px] right-0 bottom-0 flex flex-col justify-between">
           <div className="flex justify-between px-[12px] pt-[12px] ">
-            <div className="bg-secondary-200 w-[55px] h-[26px] rounded-[4px] flex items-center justify-center text-white text-[12px]">
+            {product.offer ? <div className="bg-secondary2 w-[55px] h-[26px] rounded-[4px] flex items-center justify-center text-white text-[12px]">
               {product.offer}
-            </div>
+            </div>: <div></div> }
             <div className="flex flex-col gap-2 ">
               <img src={FillHeart} alt="" />
               <img src={FillEye} alt="" />
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
       <div className="flex flex-col gap-2 mt-4">
         <h2 className="font-[500] text-[16px] ">{product.name}</h2>
         <div>
-          <span className="mr-[12px] text-secondary-200">
+          <span className="mr-[12px] text-secondary2">
             {product.discountedPrice}
           </span>
           <span className="text-black/50 font-[500] text-[16px] line-through">

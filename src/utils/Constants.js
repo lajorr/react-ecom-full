@@ -3,6 +3,11 @@ import Joystick from "../assets/images/joystick.png";
 import Keyboard from "../assets/images/keyboard.png";
 import Monitor from "../assets/images/monitor.png";
 
+import GucciBag from "../assets/images/gucci_bag.png";
+import LiquidCpuCooler from "../assets/images/liquid_cpu_cooler.png";
+import NorthCoat from "../assets/images/north_coat.png";
+import SmallBookself from "../assets/images/small_bookself.png";
+
 export const catalogList = [
   {
     id: 1,
@@ -92,4 +97,62 @@ export const flashSalesList = [
     rating: 4,
     img: Chair,
   },
+  // {
+  //   id: 5,
+  //   name: "S-Series Comfort Chair",
+  //   price: "$400",
+  //   discountedPrice: "$375",
+  //   offer: "-25%",
+  //   ratingCount: 99,
+  //   rating: 4,
+  //   img: Chair,
+  // },
+];
+
+export const bestSellingProductsList = [
+  {
+    id: 1,
+    name: "The north coat",
+    price: "$360",
+    discountedPrice: "$260",
+    ratingCount: 65,
+    rating: 5,
+    img: NorthCoat,
+  },
+  {
+    id: 2,
+    name: "Gucci duffle bag",
+    price: "$1160",
+    discountedPrice: "$960",
+    ratingCount: 65,
+    rating: 5,
+    img: GucciBag,
+  },
+  {
+    id: 3,
+    name: "RGB liquid CPU Cooler ",
+    price: "$170",
+    discountedPrice: "$160",
+    ratingCount: 65,
+    rating: 4,
+    img: LiquidCpuCooler,
+  },
+  {
+    id: 4,
+    name: "Small BookSelf",
+    price: "$360",
+    ratingCount: 65,
+    rating: 5,
+    img: SmallBookself,
+  },
+  // {
+  //   id: 5,
+  //   name: "S-Series Comfort Chair",
+  //   price: "$400",
+  //   discountedPrice: "$375",
+  //   offer: "-25%",
+  //   ratingCount: 99,
+  //   rating: 4,
+  //   img: Chair,
+  // },
 ];
