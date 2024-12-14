@@ -153,7 +153,7 @@ export const bestSellingProductsList = [
   {
     id: 4,
     name: "Small BookSelf",
-    price: "$360",
+    discountedPrice: "$360",
     ratingCount: 65,
     rating: 5,
     img: SmallBookself,

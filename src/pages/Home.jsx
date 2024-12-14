@@ -4,6 +4,7 @@ import ContentCarousel from "../components/ContentCarousel";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
+import Footer from "../components/Footer.jsx";
 import {
   bestSellingProductsList,
   categoriesList,
@@ -11,12 +12,12 @@ import {
 } from "../utils/Constants.js";
 
 const Home = () => {
-  const countDown ={
+  const countDown = {
     days: 3,
     hours: 23,
     minutes: 19,
-    seconds: 56
-  }
+    seconds: 56,
+  };
   return (
     <div>
       <Header />
@@ -63,6 +64,7 @@ const Home = () => {
           </div>
         </ContentCarousel>
       </main>
+      <Footer />
     </div>
   );
 };
