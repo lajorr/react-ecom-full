@@ -4,7 +4,7 @@ import ContentCarousel from "../components/ContentCarousel";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
-import Footer from "../components/Footer.jsx";
+import AdComponent from "../components/AdComponent";
 import {
   bestSellingProductsList,
   categoriesList,
@@ -63,8 +63,8 @@ const Home = () => {
             ))}
           </div>
         </ContentCarousel>
+        <AdComponent />
       </main>
-      <Footer />
     </div>
   );
 };
