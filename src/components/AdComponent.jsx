@@ -28,9 +28,7 @@ const AdComponent = () => {
           <OfferTimeUnit timeUnit={"Seconds"} value={35} />
         </div>
 
-        <MyButton bgColor="bg-button1" hoverColor="bg-secondary2">
-          Buy Now!
-        </MyButton>
+        <MyButton bgColor="bg-button1 hover:bg-secondary2">Buy Now!</MyButton>
       </div>
       <div className="z-0 h-[500px] w-[504px] bg-[#D9D9D9]/30 absolute rounded-full top-[-75px] left-[552px] blur-[100px]"></div>
       <img

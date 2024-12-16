@@ -24,7 +24,7 @@ const Home = () => {
   }) => {
     return (
       <div
-        className={`p-8 bg-black row-span-${rowsSpan} col-span-${colsSpan} ${bg} bg-no-repeat ${bgPosition} bg-contain`}
+        className={`p-8 bg-black  row-span-${rowsSpan} col-span-${colsSpan} ${bg} bg-no-repeat ${bgPosition} bg-contain`}
       >
         {children}
       </div>
@@ -105,16 +105,16 @@ const Home = () => {
           hasViewAll={false}
           onViewAll={() => {}}
         >
-          <div className="grid grid-cols-4 gap-[30px] h-[600px] w-full border">
+          <div className="grid grid-cols-4 grid-rows-2 gap-[30px] h-[600px] w-full">
             <BgContainer bg={"bg-ps5"} rowsSpan={2} colsSpan={2}>
-              <div className="text-white size-full  flex flex-col gap-4 items-start justify-end">
+              <div className="text-white size-full flex flex-col gap-4 items-start justify-end">
                 <h1 className="font-[600] text-[24px] leading-6 ">
                   PlayStation 5
                 </h1>
                 <p className="max-w-[245px] text-[14px] font-[400] leading-5 ">
-                  Black and White version of the PS5 coming out on sale{" "}
+                  Black and White version of the PS5 coming out on sale
                 </p>
-                <button className=" font-[500] text-[16px] leading-6 underline">
+                <button className="font-[500] text-[16px] leading-6 underline">
                   Shop Now
                 </button>
               </div>
@@ -124,13 +124,12 @@ const Home = () => {
               bgPosition={"bg-right-bottom"}
               colsSpan={2}
             >
-              {" "}
               <div className="text-white size-full  flex flex-col gap-4 items-start justify-end">
                 <h1 className="font-[600] text-[24px] leading-6 ">
                   PlayStation 5
                 </h1>
                 <p className="max-w-[245px] text-[14px] font-[400] leading-5 ">
-                  Black and White version of the PS5 coming out on sale{" "}
+                  Black and White version of the PS5 coming out on sale
                 </p>
                 <button className=" font-[500] text-[16px] leading-6 underline">
                   Shop Now
@@ -138,13 +137,12 @@ const Home = () => {
               </div>
             </BgContainer>
             <BgContainer bg={"bg-ps5"}>
-              {" "}
               <div className="text-white size-full  flex flex-col gap-4 items-start justify-end">
                 <h1 className="font-[600] text-[24px] leading-6 ">
                   PlayStation 5
                 </h1>
                 <p className="max-w-[245px] text-[14px] font-[400] leading-5 ">
-                  Black and White version of the PS5 coming out on sale{" "}
+                  Black and White version of the PS5 coming out on sale
                 </p>
                 <button className=" font-[500] text-[16px] leading-6 underline">
                   Shop Now
@@ -152,13 +150,12 @@ const Home = () => {
               </div>
             </BgContainer>
             <BgContainer bg={"bg-ps5"}>
-              {" "}
               <div className="text-white size-full  flex flex-col gap-4 items-start justify-end">
                 <h1 className="font-[600] text-[24px] leading-6 ">
                   PlayStation 5
                 </h1>
                 <p className="max-w-[245px] text-[14px] font-[400] leading-5 ">
-                  Black and White version of the PS5 coming out on sale{" "}
+                  Black and White version of the PS5 coming out on sale
                 </p>
                 <button className=" font-[500] text-[16px] leading-6 underline">
                   Shop Now

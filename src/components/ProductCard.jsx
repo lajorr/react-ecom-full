@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
               </div>
             ) : product.isNew ? (
               <div className="bg-button1  rounded-[4px] h-min py-1 px-[12px] text-white text-[12px] leading-[18px]">
-                NEW 
+                NEW
               </div>
             ) : (
               <div></div>
@@ -34,7 +34,9 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="flex flex-col gap-2 mt-4">
-        <h2 className="font-[500] text-[16px] ">{product.name}</h2>
+        <h2 className="font-[500] text-[16px] w-full text-ellipsis whitespace-nowrap overflow-hidden">
+          {product.name}
+        </h2>
         <div>
           <span className="mr-[12px] text-secondary2">
             {product.discountedPrice}
