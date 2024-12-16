@@ -12,10 +12,12 @@ const AdComponent = () => {
   };
 
   return (
-    <div className="mt-[140px] py-[70px] px-[56px] bg-black h-[500px] relative">
+    <div className="mt-[140px] mb-[70px] py-[70px] px-[56px] bg-black h-[500px] relative">
       <div className="absolute">
-        <h3 className="text-[16px] font-[600] text-button1">Categories</h3>
-        <h1 className="text-[48px] font-[600] text-white w-[443px] my-8">
+        <h3 className="text-[16px] font-[600] text-button1 leading-[20px] ">
+          Categories
+        </h3>
+        <h1 className="text-[48px] font-[600] text-white w-[443px] my-8 leading-[60px] ">
           Enhance Your Music Experience
         </h1>
         <div className="flex gap-6 mb-[40px]">

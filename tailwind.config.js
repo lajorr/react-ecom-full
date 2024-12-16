@@ -6,7 +6,10 @@ export default {
       colors: {
         secondary: "#F5F5F5",
         secondary2: "#DB4444",
-        button1: "#47B486"
+        button1: "#47B486",
+      },
+      backgroundImage: {
+        ps5: "url('./src/assets/images/ps5.png')",
       },
     },
   },

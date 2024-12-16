@@ -5,6 +5,7 @@ import RightArrowFilled from "../assets/icons/right_arrow_filled.svg";
 import Semicolon from "../assets/icons/semicolon.svg";
 
 const ContentCarousel = ({
+  className,
   sectionTitle,
   title,
   isSlidable,
@@ -35,7 +36,7 @@ const ContentCarousel = ({
     );
   };
   return (
-    <section className="flex flex-col items-center ">
+    <section className={`${className ?? ""} flex flex-col items-center`}>
       <div className="flex gap-4 items-center mb-6 w-full ">
         <div className="h-[40px] w-[20px] bg-secondary2 rounded-[4px]"></div>
         <h3 className="font-[600] text-[16px] text-secondary2">
@@ -77,11 +78,11 @@ const ContentCarousel = ({
             />
           </div>
         ) : (
-          <MyButton className="place-self-end">View All</MyButton>
+          hasViewAll && <MyButton className="place-self-end">View All</MyButton>
         )}
       </div>
       {children}
-      {hasViewAll && (
+      {hasViewAll && isSlidable && (
         <MyButton className="mt-[60px]">View All Products</MyButton>
       )}
     </section>

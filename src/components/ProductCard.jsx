@@ -12,9 +12,17 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="absolute w-[270px] h-[250px] right-0 bottom-0 flex flex-col justify-between">
           <div className="flex justify-between px-[12px] pt-[12px] ">
-            {product.offer ? <div className="bg-secondary2 w-[55px] h-[26px] rounded-[4px] flex items-center justify-center text-white text-[12px]">
-              {product.offer}
-            </div>: <div></div> }
+            {product.offer ? (
+              <div className="bg-secondary2 rounded-[4px] h-min py-1 px-[12px] text-white text-[12px]">
+                {product.offer}
+              </div>
+            ) : product.isNew ? (
+              <div className="bg-button1  rounded-[4px] h-min py-1 px-[12px] text-white text-[12px] leading-[18px]">
+                NEW 
+              </div>
+            ) : (
+              <div></div>
+            )}
             <div className="flex flex-col gap-2 ">
               <img src={FillHeart} alt="" />
               <img src={FillEye} alt="" />
