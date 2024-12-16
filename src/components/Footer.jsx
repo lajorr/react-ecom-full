@@ -12,7 +12,7 @@ import TwitterIcon from "../assets/icons/twitter_icon.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-black h-[440px] mt-[140px] pt-[80px] flex flex-col justify-between">
+    <footer className="bg-black h-[440px] pt-[80px] flex flex-col justify-between">
       <div className="px-[135px] text-white grid grid-cols-[repeat(2,1fr)_repeat(3,auto)] gap-x-[87px] ">
         <div>
           <h1 className="font-bold text-[24px]">Exclusive</h1>

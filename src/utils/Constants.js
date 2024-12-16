@@ -22,7 +22,10 @@ import HeadPhoneSelected from "../assets/icons/category_headphone_selected.svg";
 import SmartWatchSelected from "../assets/icons/category_smartWatch_selected.svg";
 
 import DogFood from "../assets/images/dog_food.png";
-import PS5 from "../assets/images/ps5.png";
+
+import CustomerServiceIcon from "../assets/icons/customer_service_icon.svg";
+import DeliveryIcon from "../assets/icons/delivery_icon.svg";
+import SecureIcon from "../assets/icons/secure_icon.svg";
 
 export const catalogList = [
   {
@@ -284,5 +287,26 @@ export const exploreProductList = [
     rating: 5,
     img: DogFood,
     isNew: false,
+  },
+];
+
+export const serviceList = [
+  {
+    id: 1,
+    title: "FREE AND FAST DELIVERY",
+    description: "Free delivery for all orders over $140",
+    icon: DeliveryIcon,
+  },
+  {
+    id: 2,
+    title: "24/7 CUSTOMER SERVICE",
+    description: "Friendly 24/7 customer support",
+    icon: CustomerServiceIcon,
+  },
+  {
+    id: 3,
+    title: "MONEY BACK GUARANTEE",
+    description: "We return money within 30 days",
+    icon: SecureIcon,
   },
 ];

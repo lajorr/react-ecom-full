@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
 import AdComponent from "../components/AdComponent";
+import ServicesComponent from "../components/ServicesComponent.jsx";
+
 import {
   bestSellingProductsList,
   categoriesList,
@@ -104,11 +106,6 @@ const Home = () => {
           onViewAll={() => {}}
         >
           <div className="grid grid-cols-4 gap-[30px] h-[600px] w-full border">
-            {/* {newArrivalList.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))} */}
-            {/* <div className="bg-black row-span-2 col-span-2 bg-ps5 bg-no-repeat bg-bottom bg-contain"></div>
-             */}
             <BgContainer bg={"bg-ps5"} rowsSpan={2} colsSpan={2}>
               <div className="text-white size-full  flex flex-col gap-4 items-start justify-end">
                 <h1 className="font-[600] text-[24px] leading-6 ">
@@ -170,6 +167,7 @@ const Home = () => {
             </BgContainer>
           </div>
         </ContentCarousel>
+        <ServicesComponent />
       </main>
     </div>
   );
