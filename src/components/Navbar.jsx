@@ -1,6 +1,7 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import React from "react";
+import { NavLink } from "react-router-dom";
 import CartIcon from "../assets/icons/cart_icon.svg";
 import HeartIcon from "../assets/icons/heart_icon.svg";
 import SearchIcon from "../assets/icons/search_icon.svg";
@@ -23,10 +24,18 @@ const Navbar = () => {
       <nav className="px-[135px]  grid grid-cols-[auto_1fr_auto]  place-items-center mt-[40px] mb-4">
         <h2 className="font-bold text-[24px]">Exclusive</h2>
         <ul className="flex space-x-12 text-4 justify-center">
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About</li>
-          <li>Sign Up</li>
+          <NavLink to="/">
+            <li>Home</li>
+          </NavLink>
+          <NavLink to="contact">
+            <li>Contact</li>
+          </NavLink>
+          <NavLink to="about">
+            <li>About</li>
+          </NavLink>
+          <NavLink to="signup">
+            <li>Sign Up</li>
+          </NavLink>
         </ul>
         <div className="flex items-center gap-4 ">
           <div className="bg-secondary rounded-[4px] flex items-center mr-2   pr-[12px]">

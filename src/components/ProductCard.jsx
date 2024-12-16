@@ -6,7 +6,7 @@ import FillHeart from "../assets/icons/fill_heart.svg";
 const ProductCard = ({ product }) => {
   return (
     <div className="group w-[270px]">
-      <div className="bg-secondary  h-[250px] rounded-[4px] relative">
+      <div className="bg-secondary h-[250px] rounded-[4px] relative">
         <div className="size-full flex items-center justify-center">
           <img src={product.img} alt="image" />
         </div>
