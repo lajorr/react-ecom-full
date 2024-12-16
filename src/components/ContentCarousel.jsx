@@ -3,6 +3,7 @@ import LeftArrowFilled from "../assets/icons/left_arrow_filled.svg";
 import RightArrowFilled from "../assets/icons/right_arrow_filled.svg";
 
 import Semicolon from "../assets/icons/semicolon.svg";
+import MyButton from "./MyButton";
 
 const ContentCarousel = ({
   className,
@@ -14,19 +15,6 @@ const ContentCarousel = ({
   countDown,
   children,
 }) => {
-  const MyButton = ({ className, children }) => {
-    return (
-      <button
-        className={`${
-          className ?? ""
-        } bg-secondary2 rounded-[4px] border text-white font-[500] py-4 px-12`}
-        onClick={onViewAll}
-      >
-        {children}
-      </button>
-    );
-  };
-
   const TimerUnit = ({ unitName, countDown }) => {
     return (
       <div className="flex flex-col items-center gap-1">
@@ -78,12 +66,18 @@ const ContentCarousel = ({
             />
           </div>
         ) : (
-          hasViewAll && <MyButton className="place-self-end">View All</MyButton>
+          hasViewAll && (
+            <MyButton className="place-self-end" onClick={onViewAll}>
+              View All
+            </MyButton>
+          )
         )}
       </div>
       {children}
       {hasViewAll && isSlidable && (
-        <MyButton className="mt-[60px]">View All Products</MyButton>
+        <MyButton className="mt-[60px]" onClick={onViewAll}>
+          View All Products
+        </MyButton>
       )}
     </section>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import Boombox from "../assets/images/boombox.png";
+import MyButton from "./MyButton";
 
 const AdComponent = () => {
   const OfferTimeUnit = ({ timeUnit, value }) => {
@@ -13,7 +14,7 @@ const AdComponent = () => {
 
   return (
     <div className="mt-[140px] mb-[70px] py-[70px] px-[56px] bg-black h-[500px] relative">
-      <div className="absolute">
+      <div>
         <h3 className="text-[16px] font-[600] text-button1 leading-[20px] ">
           Categories
         </h3>
@@ -26,19 +27,17 @@ const AdComponent = () => {
           <OfferTimeUnit timeUnit={"Minutes"} value={59} />
           <OfferTimeUnit timeUnit={"Seconds"} value={35} />
         </div>
-        <button className="bg-button1 text-white font-[500] text-[16px] rounded-[4px] py-4 px-12 ">
-          Buy Now!
-        </button>
-      </div>
 
-      <div className="relative ml-auto h-full">
-        <div className="z-0 h-[500px] w-[504px] bg-[#D9D9D9]/30 absolute rounded-full top-[-75px] left-[552px] blur-[100px]"></div>
-        <img
-          className="z-10 w-[568px] h-[330px] relative left-[510px]"
-          src={Boombox}
-          alt="boom box"
-        />
+        <MyButton bgColor="bg-button1" hoverColor="bg-secondary2">
+          Buy Now!
+        </MyButton>
       </div>
+      <div className="z-0 h-[500px] w-[504px] bg-[#D9D9D9]/30 absolute rounded-full top-[-75px] left-[552px] blur-[100px]"></div>
+      <img
+        className="z-10 w-[568px] h-[330px] absolute left-[526px] top-[75px] "
+        src={Boombox}
+        alt="boom box"
+      />
     </div>
   );
 };
