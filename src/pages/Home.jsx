@@ -1,42 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CategoryCard from "../components/CategoryCard.jsx";
 import ContentCarousel from "../components/ContentCarousel";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
 import AdComponent from "../components/AdComponent";
+import BgContainer from "../components/BgContainer.jsx";
 import ServicesComponent from "../components/ServicesComponent.jsx";
 
+import { getAllProducts } from "../services/ProductServices.js";
 import {
   bestSellingProductsList,
   categoriesList,
-  exploreProductList,
   flashSalesList,
 } from "../utils/Constants.js";
 
 const Home = () => {
-  const BgContainer = ({
-    bg,
-    rowsSpan = 1,
-    colsSpan = 1,
-    bgPosition = "bg-bottom",
-    children,
-  }) => {
-    return (
-      <div
-        className={`p-8 bg-black  row-span-${rowsSpan} col-span-${colsSpan} ${bg} bg-no-repeat ${bgPosition} bg-contain`}
-      >
-        {children}
-      </div>
-    );
-  };
-
   const countDown = {
     days: 3,
     hours: 23,
     minutes: 19,
     seconds: 56,
   };
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  const getProductsData = async () => {
+    try {
+      setIsLoading(true);
+      const res = await getAllProducts();
+      setProducts(res);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getProductsData();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -56,7 +60,6 @@ const Home = () => {
           </div>
         </ContentCarousel>
         <hr className="my-[60px] h-[0.5px] w-full bg-black/30" />
-
         <ContentCarousel
           sectionTitle="Categories"
           title="Browse By Category"
@@ -68,7 +71,6 @@ const Home = () => {
             ))}
           </div>
         </ContentCarousel>
-
         <hr className="my-[60px] h-[0.5px] w-full bg-black/30" />
         <ContentCarousel
           sectionTitle="This Month"
@@ -89,14 +91,20 @@ const Home = () => {
           title="Explore Our Products"
           isSlidable={true}
           hasViewAll={true}
-          onViewAll={() => {}}
+          onViewAll={() => {
+            console.log(products);
+          }}
         >
-          <div className="grid grid-cols-4 gap-[30px]">
-            {exploreProductList.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {isLoading && <div>Loading...</div>}
+          {!isLoading && (
+            <div className="grid grid-cols-4 gap-[30px]">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
         </ContentCarousel>
+
         <ContentCarousel
           className="mt-[140px]"
           sectionTitle="Featured"

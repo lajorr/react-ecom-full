@@ -35,14 +35,14 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="flex flex-col gap-2 mt-4">
         <h2 className="font-[500] text-[16px] w-full text-ellipsis whitespace-nowrap overflow-hidden">
-          {product.name}
+          {product.title}
         </h2>
         <div>
           <span className="mr-[12px] text-secondary2">
             {product.discountedPrice}
           </span>
-          <span className="text-black/50 font-[500] text-[16px] line-through">
-            {product.price}
+          <span className="text-black/50 font-[500] text-[16px]">
+            ${product.price}
           </span>
         </div>
         <div className="flex">
@@ -51,13 +51,15 @@ const ProductCard = ({ product }) => {
               key={index}
               sx={{
                 fontSize: "20px",
-                color: `${index < product.rating ? "#FFAD33" : "black"}`,
+                color: `${
+                  index < Math.round(product.rating.rate) ? "#FFAD33" : "black"
+                }`,
                 opacity: `${index >= product.rating && "25%"}`,
               }}
             />
           ))}
           <p className="ml-2 text-[14px] font-[600] text-black/50 ">
-            ({product.ratingCount})
+            ({product.rating.count})
           </p>
         </div>
       </div>
