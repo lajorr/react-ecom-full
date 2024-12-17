@@ -10,9 +10,7 @@ import ServicesComponent from "../components/ServicesComponent.jsx";
 
 import { getAllProducts } from "../services/ProductServices.js";
 import {
-  bestSellingProductsList,
-  categoriesList,
-  flashSalesList,
+  categoriesList
 } from "../utils/Constants.js";
 
 const Home = () => {
@@ -54,7 +52,7 @@ const Home = () => {
           onViewAll={() => {}}
         >
           <div className="flex gap-[30px]">
-            {flashSalesList.map((product) => (
+            {products.slice(0, 4).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -80,7 +78,7 @@ const Home = () => {
           onViewAll={() => {}}
         >
           <div className="flex gap-[30px]">
-            {bestSellingProductsList.map((product) => (
+            {products.slice(0, 4).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -98,7 +96,7 @@ const Home = () => {
           {isLoading && <div>Loading...</div>}
           {!isLoading && (
             <div className="grid grid-cols-4 gap-[30px]">
-              {products.map((product) => (
+              {products.slice(0, 8).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

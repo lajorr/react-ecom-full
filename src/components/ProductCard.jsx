@@ -1,17 +1,18 @@
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import React from "react";
-import FillEye from "../assets/icons/fill_eye.svg";
-import FillHeart from "../assets/icons/fill_heart.svg";
 
 const ProductCard = ({ product }) => {
   return (
     <div className="group w-[270px]">
-      <div className="bg-secondary h-[250px] rounded-[4px] relative">
-        <div className="size-full flex items-center justify-center">
-          <img src={product.img} alt="image" />
-        </div>
-        <div className="absolute w-[270px] h-[250px] right-0 bottom-0 flex flex-col justify-between">
-          <div className="flex justify-between px-[12px] pt-[12px] ">
+      <div
+        className="bg-secondary h-[250px] rounded-[4px] bg-contain bg-no-repeat bg-center"
+        style={{ backgroundImage: `url(${product.image})` }}
+      >
+        {/* <div className="size-full flex items-center justify-center">
+          <img className="size-full" src={product.image} alt="image" />
+        </div> */}
+        <div className=" w-[270px] h-[250px] flex flex-col justify-end">
+          {/* <div className="flex justify-between px-[12px] pt-[12px] ">
             {product.offer ? (
               <div className="bg-secondary2 rounded-[4px] h-min py-1 px-[12px] text-white text-[12px]">
                 {product.offer}
@@ -27,9 +28,9 @@ const ProductCard = ({ product }) => {
               <img src={FillHeart} alt="" />
               <img src={FillEye} alt="" />
             </div>
-          </div>
-          <div className="bg-black w-full h-[40px] rounded-b-[4px] text-white text-[16px] font-[500] hidden group-hover:block cursor-pointer">
-            <p className="text-center my-2"> Add To Cart</p>
+          </div> */}
+          <div className="bg-black w-full py-2 rounded-b-[4px] text-white text-[16px] font-[500] hidden group-hover:block cursor-pointer">
+            <p className="text-center my-2 leading-6"> Add To Cart</p>
           </div>
         </div>
       </div>
@@ -37,12 +38,10 @@ const ProductCard = ({ product }) => {
         <h2 className="font-[500] text-[16px] w-full text-ellipsis whitespace-nowrap overflow-hidden">
           {product.title}
         </h2>
-        <div>
-          <span className="mr-[12px] text-secondary2">
-            {product.discountedPrice}
-          </span>
-          <span className="text-black/50 font-[500] text-[16px]">
-            ${product.price}
+        <div className="flex justify-between">
+          <span className="mr-[12px] text-secondary2">${product.price}</span>
+          <span className="text-black/30 font-[500] text-[16px]">
+            {product.category}
           </span>
         </div>
         <div className="flex">
@@ -54,7 +53,7 @@ const ProductCard = ({ product }) => {
                 color: `${
                   index < Math.round(product.rating.rate) ? "#FFAD33" : "black"
                 }`,
-                opacity: `${index >= product.rating && "25%"}`,
+                opacity: `${index >= Math.round(product.rating.rate) && "25%"}`,
               }}
             />
           ))}
