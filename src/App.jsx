@@ -1,22 +1,30 @@
-import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer.jsx";
-import Navbar from "./components/Navbar";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp.jsx";
+import RootLayout from "./RootLayout.jsx";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="about" element={<About />} />
+      <Route path="signup" element={<SignUp />} />
+    </Route>
+  )
+);
 
 function App() {
   return (
     <div className="max-w-[1440px] mx-auto">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
-      <Footer />
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
