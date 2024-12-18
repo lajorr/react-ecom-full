@@ -1,12 +1,13 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import CartIcon from "../assets/icons/cart_icon.svg";
 import HeartIcon from "../assets/icons/heart_icon.svg";
 import SearchIcon from "../assets/icons/search_icon.svg";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="bg-black h-[48px] text-white text-[14px] flex items-center justify-between px-[135px]">
@@ -22,7 +23,14 @@ const Navbar = () => {
         </div>
       </div>
       <nav className="px-[135px]  grid grid-cols-[auto_1fr_auto]  place-items-center mt-[40px] mb-4">
-        <h2 className="font-bold text-[24px]">Exclusive</h2>
+        <h2
+          className="font-bold text-[24px] cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Exclusive
+        </h2>
         <ul className="flex space-x-12 text-4 justify-center">
           <NavLink to="/">
             <li>Home</li>

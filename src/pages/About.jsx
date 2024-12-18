@@ -1,7 +1,10 @@
-import React from "react";
-
+import Roadmap from "../components/Roadmap";
 const About = () => {
-  return <div>About</div>;
+  return (
+    <div>
+      <Roadmap path="About" />
+    </div>
+  );
 };
 
 export default About;
