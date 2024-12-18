@@ -7,7 +7,7 @@ import Roadmap from "../components/Roadmap";
 
 const Contact = () => {
   return (
-    <div>
+    <>
       <Roadmap path="Contact" />
       <div className="flex gap-[30px] mb-[140px] mx-[135px]">
         <div className="rounded-[4px] px-8 py-[40px] shadow-[0px_1px_13px_0px_#0000000D] ">
@@ -60,7 +60,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

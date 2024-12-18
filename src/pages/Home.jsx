@@ -6,12 +6,10 @@ import ProductCard from "../components/ProductCard";
 
 import AdComponent from "../components/AdComponent";
 import BgContainer from "../components/BgContainer.jsx";
-import ServicesComponent from "../components/ServicesComponent.jsx";
+import Services from "../components/Services.jsx";
 
 import { getAllProducts } from "../services/ProductServices.js";
-import {
-  categoriesList
-} from "../utils/Constants.js";
+import { categoriesList } from "../utils/Constants.js";
 
 const Home = () => {
   const countDown = {
@@ -170,7 +168,7 @@ const Home = () => {
             </BgContainer>
           </div>
         </ContentCarousel>
-        <ServicesComponent />
+        <Services />
       </main>
     </div>
   );
