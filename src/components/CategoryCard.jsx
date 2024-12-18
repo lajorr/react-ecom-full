@@ -3,7 +3,7 @@ import React from "react";
 const CategoryCard = ({ category }) => {
   return (
     <div className="group">
-      <div className="h-[145px] w-[170px] rounded-[4px] border border-black/30 py-6 cursor-pointer  group-hover:bg-secondary2">
+      <div className=" w-[170px] rounded-[4px] border border-black/30 py-[25px] cursor-pointer  group-hover:bg-secondary2">
         <img
           className="group-hover:hidden mx-auto"
           src={category.icon}
