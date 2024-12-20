@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-const Roadmap = ({ path }) => {
+const Breadcrumbs = ({ path }) => {
   const navigate = useNavigate();
   return (
     <div className="text-black/50 text-[14px] my-[80px] flex gap-3 mx-[135px]">
@@ -17,4 +17,4 @@ const Roadmap = ({ path }) => {
   );
 };
 
-export default Roadmap;
+export default Breadcrumbs;

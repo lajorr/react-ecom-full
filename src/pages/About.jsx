@@ -1,4 +1,4 @@
-import Roadmap from "../components/Roadmap";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 import OurStoryImage from "../assets/images/our_story_image.png";
 
@@ -8,7 +8,7 @@ import { achievementList, memberList } from "../utils/Constants";
 const About = () => {
   return (
     <>
-      <Roadmap path="About" />
+      <Breadcrumbs path="About" />
       <section className=" ml-[135px] mb-[140px]">
         <div className="flex gap-[75px] justify-between">
           <div className="flex flex-col justify-center">
@@ -63,7 +63,7 @@ const About = () => {
             </div>
           ))}
         </div>
-        <Services/>
+        <Services />
       </section>
     </>
   );

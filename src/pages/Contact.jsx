@@ -1,14 +1,14 @@
 import React from "react";
 import EmailIcon from "../assets/icons/email_icon.svg";
 import PhoneIcon from "../assets/icons/phone_icon.svg";
+import Breadcrumbs from "../components/Breadcrumbs";
 import ContactService from "../components/ContactService";
 import MyButton from "../components/MyButton";
-import Roadmap from "../components/Roadmap";
 
 const Contact = () => {
   return (
     <>
-      <Roadmap path="Contact" />
+      <Breadcrumbs path="Contact" />
       <div className="flex gap-[30px] mb-[140px] mx-[135px]">
         <div className="rounded-[4px] px-8 py-[40px] shadow-[0px_1px_13px_0px_#0000000D] ">
           <ContactService icon={PhoneIcon} title="Call To Us">

@@ -4,11 +4,12 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home";
+import ProductDetail, { ProductLoader } from "./pages/ProductDetail.jsx";
 import SignUp from "./pages/SignUp.jsx";
-import RootLayout from "./RootLayout.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,11 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="about" element={<About />} />
       <Route path="signup" element={<SignUp />} />
+      <Route
+        path="products/:id"
+        element={<ProductDetail />}
+        loader={ProductLoader}
+      />
     </Route>
   )
 );
