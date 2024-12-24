@@ -18,6 +18,7 @@ const ProductDetail = () => {
   const sizes = ["XS", "S", "M", "L", "XL"];
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
+  const [quantity, setQuantity] = useState(1);
   const [productDetails, setProductDetails] = useState();
 
   useEffect(() => {
@@ -122,13 +123,24 @@ const ProductDetail = () => {
           </div>
           <div className="flex gap-4 mb-[40px]">
             <div className="rounded-[4px] grid grid-cols-[auto_1fr_auto] w-[160px] overflow-hidden border-2 border-black/50">
-              <button className="px-2 border-r-2 border-black/50">
+              <button
+                className="px-2 border-r-2 border-black/50"
+                onClick={() =>
+                  setQuantity((prev) => {
+                    if (prev > 1) return prev - 1;
+                    return prev;
+                  })
+                }
+              >
                 <img src={IconMinus} alt="minus" />
               </button>
               <div className="place-self-center font-[500] text-[20px] py-2">
-                2
+                {quantity}
               </div>
-              <button className="bg-secondary2 px-3 border-l-2">
+              <button
+                className="bg-secondary2 px-3 border-l-2"
+                onClick={() => setQuantity((prev) => prev + 1)}
+              >
                 <img src={IconPlus} alt="plus" />
               </button>
             </div>
