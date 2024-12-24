@@ -3,6 +3,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import CartIcon from "../assets/icons/cart_icon.svg";
+import HeartIcon from "../assets/icons/heart_icon.svg";
 import SearchIcon from "../assets/icons/search_icon.svg";
 
 const Navbar = () => {
@@ -53,7 +54,12 @@ const Navbar = () => {
             />
             <img src={SearchIcon} alt="Search Icon" />
           </div>
-          <img className="cursor-pointer" src={CartIcon} alt="=Cart Icon" />
+          <img className="cursor-pointer" src={HeartIcon} alt="=Cart Icon" />
+          <button onClick={() => {
+            navigate("/cart")
+          }}>
+            <img className="cursor-pointer" src={CartIcon} alt="=Cart Icon" />
+          </button>
         </div>
       </nav>
       <hr className="h-[0.5px] bg-black/30" />

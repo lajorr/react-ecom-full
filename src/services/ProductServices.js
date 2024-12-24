@@ -9,3 +9,4 @@ export const getProductById = async (id) => {
   const res = await api().get(`/products/${id}`);
   return res.data;
 };
+

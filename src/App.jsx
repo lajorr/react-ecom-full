@@ -6,10 +6,12 @@ import {
 } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout.jsx";
 import About from "./pages/About.jsx";
+import Cart from "./pages/Cart.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home";
-import ProductDetail, { ProductLoader } from "./pages/ProductDetail.jsx";
+import ProductDetail from "./pages/ProductDetail.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import CartProvider from "./provider/CartProvider.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,11 +20,8 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="about" element={<About />} />
       <Route path="signup" element={<SignUp />} />
-      <Route
-        path="products/:id"
-        element={<ProductDetail />}
-        loader={ProductLoader} 
-      />
+      <Route path="products/:id" element={<ProductDetail />} />
+      <Route path="cart" element={<Cart />} />
     </Route>
   )
 );
@@ -30,7 +29,9 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div className="max-w-[1440px] mx-auto">
-      <RouterProvider router={router}></RouterProvider>
+      <CartProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </CartProvider>
     </div>
   );
 }

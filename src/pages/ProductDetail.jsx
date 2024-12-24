@@ -1,26 +1,40 @@
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Ratings from "../components/Ratings";
-import { getProductById } from "../services/ProductServices";
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import DeliveryIconBlack from "../assets/icons/delivery_icon_black.svg";
-import HearIcon from "../assets/icons/heart_icon.svg";
+import HeartIcon from "../assets/icons/heart_icon.svg";
 import IconMinus from "../assets/icons/icon_minus.svg";
 import IconPlus from "../assets/icons/icon_plus.svg";
 import ReturnIcon from "../assets/icons/return_icon.svg";
+import Breadcrumbs from "../components/Breadcrumbs";
 import MyButton from "../components/MyButton";
+import Ratings from "../components/Ratings";
 import ServiceAvailable from "../components/ServiceAvailable";
+import { getProductById } from "../services/ProductServices";
 
 const ProductDetail = () => {
-  const productDetails = useLoaderData();
-  const navigate = useNavigate();
+  const { id } = useParams();
 
-  const [color, setColor] = useState(null);
-  const [size, setSize] = useState(null);
   const colors = ["#A0BCE0", "#E07575"];
   const sizes = ["XS", "S", "M", "L", "XL"];
+  const [color, setColor] = useState(null);
+  const [size, setSize] = useState(null);
+  const [productDetails, setProductDetails] = useState();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProductById(id);
+      setProductDetails(data);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log("Dteail", productDetails);
+  }, [productDetails]);
+
+  if (!productDetails) {
+    return <div>Loading</div>;
+  }
 
   return (
     <>
@@ -122,7 +136,7 @@ const ProductDetail = () => {
             <button className="rounded-[4px] border-2 border-black/50 ">
               <img
                 className="size-full object-contain"
-                src={HearIcon}
+                src={HeartIcon}
                 alt="wish list"
               />
             </button>
@@ -147,8 +161,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
-export const ProductLoader = ({ params }) => {
-  const { id } = params;
-  return getProductById(id);
-};
