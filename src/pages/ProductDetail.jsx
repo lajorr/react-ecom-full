@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Ratings from "../components/Ratings";
 import { getProductById } from "../services/ProductServices";
@@ -14,11 +14,13 @@ import ServiceAvailable from "../components/ServiceAvailable";
 
 const ProductDetail = () => {
   const productDetails = useLoaderData();
+  const navigate = useNavigate();
 
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
   const colors = ["#A0BCE0", "#E07575"];
   const sizes = ["XS", "S", "M", "L", "XL"];
+
 
   return (
     <>
@@ -147,7 +149,6 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 export const ProductLoader = ({ params }) => {
-  console.log(params);
   const { id } = params;
   return getProductById(id);
 };

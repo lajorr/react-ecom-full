@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Ratings from "./Ratings";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+  const handleProductClick = () => {
+    console.log("Product Clicked", product.id);
+    navigate(`/products/${product.id}`);
+  };
   return (
-    <div className="group w-[270px]">
+    <div className="group w-[270px]" onClick={handleProductClick}>
       <div
         className="bg-secondary h-[250px] rounded-[4px] bg-contain bg-no-repeat bg-center cursor-pointer"
         style={{ backgroundImage: `url(${product.image})` }}
