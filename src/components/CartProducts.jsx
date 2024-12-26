@@ -1,52 +1,36 @@
-import React, { useState } from "react";
-import Joystick from "../assets/images/joystick.png";
+import React from "react";
 const CartProducts = ({ productList }) => {
   const cartColumns = ["Product", "Price", "Quantity", "Subtotal"];
 
-  const [cartItemList, setCartItemList] = useState([
-    {
-      title: "Joystick",
-      img: Joystick,
-      price: 123,
-      quantity: 2,
-      subtotal: 246,
-    },
-  ]);
 
-  const addToCart = () => {
-    console.log("Add to cart");
-    const item = {
-      title: "Joystick",
-      img: Joystick,
-      price: 123,
-      quantity: 2,
-      subtotal: 246,
-    };
-    // cartItemList.push(item);
-    setCartItemList((prev) => [...prev, item]);
-  };
 
   return (
     <div className="mb-20">
-      <button onClick={addToCart}>add to cart</button>
-      {cartItemList?.length === 0 ? (
+      {productList?.length === 0 ? (
         <h1>No Items</h1>
       ) : (
         <div className="flex flex-col gap-10">
           <GridContainer>
-            {cartColumns.map((col) => (
-              <div className="">{col}</div>
+            {cartColumns.map((col, idx) => (
+              <div key={idx} className="">
+                {col}
+              </div>
             ))}
           </GridContainer>
-          {cartItemList.map((item) => (
-            <CartProductTile
-              img={item.img}
-              title={item.title}
-              price={item.price}
-              quantity={item.quantity}
-              subtotal={item.subtotal}
-            />
-          ))}
+          {productList?.map((item) => {
+            const cartProduct = item.cartProduct;
+            return (
+              <CartProductTile
+                key={cartProduct.product?.id}
+                img={cartProduct.product?.image}
+                title={cartProduct.product?.title}
+                price={cartProduct.product?.price}
+                quantity={cartProduct.quantity}
+                subtotal={cartProduct.subtotal}
+                //* calc subtotal
+              />
+            );
+          })}
         </div>
       )}
     </div>

@@ -29,10 +29,6 @@ const ProductDetail = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log("Dteail", productDetails);
-  }, [productDetails]);
-
   if (!productDetails) {
     return <div>Loading</div>;
   }

@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import CartProducts from "../components/CartProducts";
 import MyButton from "../components/MyButton";
+import { CartContext } from "../provider/CartProvider";
 
 const Cart = () => {
-  const productList = [1];
+  const cartContext = useContext(CartContext);
+  const cartItems = cartContext?.cartItems;
+
+
   return (
     <>
       <Breadcrumbs path="Cart" />
       <div className="mx-[135px]">
-        <CartProducts cartItems={productList} />
+        <CartProducts productList={cartItems} />
         <div className="flex justify-between mb-[140px]">
           <div className="flex gap-4 h-min">
             <input
