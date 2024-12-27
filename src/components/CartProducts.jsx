@@ -1,9 +1,13 @@
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 const CartProducts = ({ productList, updateQuantity, removeFromCart }) => {
   const cartColumns = ["Product", "Price", "Quantity", "Subtotal"];
   const [isUpdate, setIsUpdate] = useState(false);
+
+  const navigate = useNavigate();
+
   return (
     <div className="mb-20">
       {productList?.length === 0 ? (
@@ -38,6 +42,9 @@ const CartProducts = ({ productList, updateQuantity, removeFromCart }) => {
               bgColor="white hover:bg-black/5"
               className={"border border-black"}
               textColor="black"
+              onClick={() => {
+                navigate('/');
+              }}
             >
               Return To Shop
             </MyButton>

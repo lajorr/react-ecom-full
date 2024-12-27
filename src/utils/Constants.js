@@ -190,3 +190,48 @@ export const memberList = [
     img: WillSmith,
   },
 ];
+
+export const billingFormFields = [
+  {
+    id: 1,
+    label: "First Name",
+    name: "firstName",
+    isRequired: true,
+  },
+  {
+    id: 2,
+    label: "Company Name",
+    name: "companyName",
+    isRequired: false,
+  },
+  {
+    id: 3,
+    label: "Street Address",
+    name: "streetAddress",
+    isRequired: true,
+  },
+  {
+    id: 4,
+    label: "Apartment, floor, etc. (optional)",
+    name: "apartment",
+    isRequired: false,
+  },
+  {
+    id: 5,
+    label: "Town/City",
+    name: "townCity",
+    isRequired: true,
+  },
+  {
+    id: 6,
+    label: "Phone Number",
+    name: "phoneNumber",
+    isRequired: true,
+  },
+  {
+    id: 7,
+    label: "Email Address",
+    name: "emailAddress",
+    isRequired: true,
+  },
+];

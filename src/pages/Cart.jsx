@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import CartProducts from "../components/CartProducts";
 import MyButton from "../components/MyButton";
@@ -7,6 +8,8 @@ import { useCartContext } from "../provider/CartProvider";
 const Cart = () => {
   const cartContext = useCartContext();
   const cartItems = cartContext.cartItems;
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -44,7 +47,17 @@ const Cart = () => {
               <p>${cartContext.calculateTotal().toFixed(2)}</p>
             </div>
             <div className="flex justify-center">
-              <MyButton>Proceed to Checkout</MyButton>
+              <MyButton
+                onClick={() => {
+                  if (cartItems.length === 0) {
+                    alert("Cart is empty");
+                  } else {
+                    navigate("/billing");
+                  }
+                }}
+              >
+                Proceed to Checkout
+              </MyButton>
             </div>
           </div>
         </div>
