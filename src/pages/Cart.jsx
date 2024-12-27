@@ -15,7 +15,9 @@ const Cart = () => {
         <CartProducts
           productList={cartItems}
           updateQuantity={cartContext.updateQuantity}
+          removeFromCart={cartContext.deleteItem}
         />
+
         <div className="flex justify-between mb-[140px]">
           <div className="flex gap-4 h-min">
             <input

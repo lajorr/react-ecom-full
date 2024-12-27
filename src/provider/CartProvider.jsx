@@ -69,8 +69,15 @@ const CartProvider = ({ children }) => {
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
-      return (total + item.cartProduct.subTotal);
+      return total + item.cartProduct.subTotal;
     }, 0);
+  };
+
+  const deleteItem = (id) => {
+    const updatedCartItems = cartItems.filter(
+      (cartItem) => cartItem.cartProduct.product.id !== id
+    );
+    setCartItems(updatedCartItems);
   };
 
   return (
@@ -80,6 +87,7 @@ const CartProvider = ({ children }) => {
         addToCart: addToCart,
         updateQuantity: updateQuantity,
         calculateTotal: calculateTotal,
+        deleteItem: deleteItem,
       }}
     >
       {children}

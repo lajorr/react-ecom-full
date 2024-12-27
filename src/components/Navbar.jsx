@@ -5,9 +5,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import CartIcon from "../assets/icons/cart_icon.svg";
 import HeartIcon from "../assets/icons/heart_icon.svg";
 import SearchIcon from "../assets/icons/search_icon.svg";
+import { useCartContext } from "../provider/CartProvider";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const cartContext = useCartContext();
+  const cartItems = cartContext.cartItems;
   return (
     <>
       <div className="bg-black h-[48px] text-white text-[14px] flex items-center justify-between px-[135px]">
@@ -55,9 +58,15 @@ const Navbar = () => {
             <img src={SearchIcon} alt="Search Icon" />
           </div>
           <img className="cursor-pointer" src={HeartIcon} alt="=Cart Icon" />
-          <button onClick={() => {
-            navigate("/cart")
-          }}>
+          <button
+            onClick={() => {
+              navigate("/cart");
+            }}
+            className="relative"
+          >
+            <div className="bg-secondary2 size-4 rounded-full text-white text-[12px] absolute top-[-4px] right-[-4px]">
+              {cartItems.length}
+            </div>
             <img className="cursor-pointer" src={CartIcon} alt="=Cart Icon" />
           </button>
         </div>
