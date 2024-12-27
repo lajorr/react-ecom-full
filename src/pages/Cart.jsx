@@ -29,7 +29,7 @@ const Cart = () => {
             <h1 className="text-[20px] font-[500] mb-[24px]">Cart Total</h1>
             <div className="flex justify-between text-[16px]">
               <p>Subtotal</p>
-              <p>${cartContext.calculateTotal()}</p>
+              <p>${cartContext.calculateTotal().toFixed(2)}</p>
             </div>
             <hr className="bg-black/40 my-4 " />
             <div className="flex justify-between text-[16px]">
@@ -39,7 +39,7 @@ const Cart = () => {
             <hr className="bg-black/40 my-4 " />
             <div className="flex justify-between text-[16px] mb-4">
               <p>Total</p>
-              <p>${cartContext.calculateTotal()}</p>
+              <p>${cartContext.calculateTotal().toFixed(2)}</p>
             </div>
             <div className="flex justify-center">
               <MyButton>Proceed to Checkout</MyButton>

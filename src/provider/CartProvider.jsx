@@ -69,7 +69,7 @@ const CartProvider = ({ children }) => {
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
-      return total + item.cartProduct.subTotal;
+      return (total + item.cartProduct.subTotal);
     }, 0);
   };
 
