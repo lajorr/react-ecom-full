@@ -1,8 +1,6 @@
 import React from "react";
-const CartProducts = ({ productList }) => {
+const CartProducts = ({ productList, updateQuantity }) => {
   const cartColumns = ["Product", "Price", "Quantity", "Subtotal"];
-
-
 
   return (
     <div className="mb-20">
@@ -21,13 +19,15 @@ const CartProducts = ({ productList }) => {
             const cartProduct = item.cartProduct;
             return (
               <CartProductTile
-                key={cartProduct.product?.id}
-                img={cartProduct.product?.image}
-                title={cartProduct.product?.title}
-                price={cartProduct.product?.price}
+                key={cartProduct.product.id}
+                img={cartProduct.product.image}
+                title={cartProduct.product.title}
+                price={cartProduct.product.price}
                 quantity={cartProduct.quantity}
-                subtotal={cartProduct.subtotal}
-                //* calc subtotal
+                subtotal={cartProduct.subTotal}
+                onQuantityChanged={(e) => {
+                  updateQuantity(cartProduct.product.id, e.target.value);
+                }}
               />
             );
           })}
@@ -45,7 +45,16 @@ const GridContainer = ({ children }) => {
   );
 };
 
-const CartProductTile = ({ title, img, price, quantity, subtotal }) => {
+const CartProductTile = ({
+  title,
+  img,
+  price,
+  quantity,
+  subtotal,
+  onQuantityChanged,
+}) => {
+  console.log("subtotal_tile", subtotal);
+
   return (
     <GridContainer>
       <div className="flex gap-5 items-center">
@@ -55,8 +64,10 @@ const CartProductTile = ({ title, img, price, quantity, subtotal }) => {
       <p>${price}</p>
       <input
         type="number"
+        min={1}
         defaultValue={quantity}
         className="w-[72px] border-2 text-center"
+        onChange={onQuantityChanged}
       />
       <p>${subtotal}</p>
     </GridContainer>

@@ -1,19 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import CartProducts from "../components/CartProducts";
 import MyButton from "../components/MyButton";
-import { CartContext } from "../provider/CartProvider";
+import { useCartContext } from "../provider/CartProvider";
 
 const Cart = () => {
-  const cartContext = useContext(CartContext);
-  const cartItems = cartContext?.cartItems;
-
+  const cartContext = useCartContext();
+  const cartItems = cartContext.cartItems;
 
   return (
     <>
       <Breadcrumbs path="Cart" />
       <div className="mx-[135px]">
-        <CartProducts productList={cartItems} />
+        <CartProducts
+          productList={cartItems}
+          updateQuantity={cartContext.updateQuantity}
+        />
         <div className="flex justify-between mb-[140px]">
           <div className="flex gap-4 h-min">
             <input
@@ -27,7 +29,7 @@ const Cart = () => {
             <h1 className="text-[20px] font-[500] mb-[24px]">Cart Total</h1>
             <div className="flex justify-between text-[16px]">
               <p>Subtotal</p>
-              <p>$175</p>
+              <p>${cartContext.calculateTotal()}</p>
             </div>
             <hr className="bg-black/40 my-4 " />
             <div className="flex justify-between text-[16px]">
@@ -37,7 +39,7 @@ const Cart = () => {
             <hr className="bg-black/40 my-4 " />
             <div className="flex justify-between text-[16px] mb-4">
               <p>Total</p>
-              <p>$175</p>
+              <p>${cartContext.calculateTotal()}</p>
             </div>
             <div className="flex justify-center">
               <MyButton>Proceed to Checkout</MyButton>

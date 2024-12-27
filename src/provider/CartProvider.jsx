@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext(null);
 
@@ -15,29 +15,72 @@ const CartProvider = ({ children }) => {
     if (existingItemIdx !== -1) {
       // product exists
       const updatedCartItems = cartItems.map((cartItem, idx) => {
+        const cartProduct = cartItem.cartProduct;
+
         if (idx === existingItemIdx) {
-          return {
+          const newQuantity = cartProduct.quantity + 1;
+          const updated = {
             cartProduct: {
-              product: cartItem.cartProduct.product,
-              quantity: cartItem.cartProduct.quantity + 1,
+              product: cartProduct.product,
+              quantity: newQuantity,
             },
           };
+          return CartWithSubTotal(updated);
+        } else {
+          return CartWithSubTotal(cartItem);
         }
-        return cartItem;
       });
       setCartItems(updatedCartItems);
     } else {
-      setCartItems((prev) => [...prev, item]);
+      const newItem = CartWithSubTotal(item);
+      setCartItems((prev) => [...prev, newItem]);
     }
   };
 
-  const calculateSubtotal = (item) => {
-    item.product.price * item.quantity;
+  const CartWithSubTotal = (item) => {
+    const cartProduct = item.cartProduct;
+    return {
+      cartProduct: {
+        product: cartProduct.product,
+        quantity: cartProduct.quantity,
+        subTotal: cartProduct.quantity * cartProduct.product.price,
+      },
+    };
+  };
+
+  const updateQuantity = (id, quantity) => {
+    console.log("udateing", id, quantity);
+    const updatedCartItems = cartItems.map((cartItem) => {
+      const cartProduct = cartItem.cartProduct;
+      if (cartProduct.product.id === id) {
+        const updated = {
+          cartProduct: {
+            product: cartProduct.product,
+            quantity,
+          },
+        };
+        return CartWithSubTotal(updated);
+      }
+      return cartItem;
+    });
+
+    setCartItems(updatedCartItems);
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => {
+      return total + item.cartProduct.subTotal;
+    }, 0);
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems: cartItems, addToCart: addToCart }}
+      value={{
+        cartItems: cartItems,
+        addToCart: addToCart,
+        updateQuantity: updateQuantity,
+        calculateTotal: calculateTotal,
+      }}
     >
       {children}
     </CartContext.Provider>
@@ -45,3 +88,11 @@ const CartProvider = ({ children }) => {
 };
 
 export default CartProvider;
+
+export function useCartContext() {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCartContext must be used within a CartProvider");
+  }
+  return context;
+}
