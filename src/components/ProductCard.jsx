@@ -28,6 +28,7 @@ const ProductCard = ({ product }) => {
             className="bg-black w-full py-4 rounded-b-[4px] text-white text-[16px] font-[500] hidden group-hover:block cursor-pointer"
             onClick={() => {
               addToCart({ cartProduct: { product, quantity: 1 } });
+              alert("Added");
             }}
           >
             Add To Cart

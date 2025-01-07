@@ -8,6 +8,7 @@ import AdComponent from "../components/AdComponent";
 import BgContainer from "../components/BgContainer.jsx";
 import Services from "../components/Services.jsx";
 
+import Loader from "../components/Loader.jsx";
 import { getAllProducts } from "../services/ProductServices.js";
 import { categoriesList } from "../utils/Constants.js";
 
@@ -91,7 +92,7 @@ const Home = () => {
             console.log(products);
           }}
         >
-          {isLoading && <div>Loading...</div>}
+          {isLoading && <Loader />}
           {!isLoading && (
             <div className="grid grid-cols-4 gap-[30px]">
               {products.slice(0, 8).map((product) => (

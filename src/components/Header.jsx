@@ -15,8 +15,10 @@ const Header = () => {
             key={item.id}
             className="flex justify-between items-center w-[217px]"
           >
-            <p className="text-[16px]">{item.name}</p>
-            {item.hasMore && <ArrowForwardIosIcon fontSize="24px" />}
+            <p className="text-[16px] cursor-pointer">{item.name}</p>
+            {item.hasMore && (
+              <ArrowForwardIosIcon fontSize="24px" sx={{ cursor: "pointer" }} />
+            )}
           </div>
         ))}
       </div>
@@ -27,7 +29,9 @@ const Header = () => {
               <img className="w-[40px]" src={AppleLogo} alt="Apple Logo" />
               <h2 className="text-[16p">iPhone 14 Series</h2>
             </div>
-            <h1 className="text-[48px] w-[294px] font-[600] ">Up to 10% off Voucher</h1>
+            <h1 className="text-[48px] w-[294px] font-[600] ">
+              Up to 10% off Voucher
+            </h1>
             <div className="flex gap-2 cursor-pointer ">
               <p className="font-[500] text-[16px] underline underline-offset-4 ">
                 Shop Now

@@ -9,6 +9,7 @@ import About from "./pages/About.jsx";
 import Billing from "./pages/Billing.jsx";
 import Cart from "./pages/Cart.jsx";
 import Contact from "./pages/Contact.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import SignUp from "./pages/SignUp.jsx";
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="products/:id" element={<ProductDetail />} />
       <Route path="cart" element={<Cart />} />
       <Route path="billing" element={<Billing />} />
+      <Route path="*" element={<ErrorPage />} />
     </Route>
   )
 );
